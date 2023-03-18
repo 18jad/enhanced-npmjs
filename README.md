@@ -2,6 +2,11 @@
 
 Browser extension to enhance and add extra features to [npmjs.com](https://www.npmjs.com/)
 
+## Download
+### Chrome and Edge: ~LINK~
+
+Extension waiting for approval from chrome store, will update link when it's approved
+
 ## Current features:
 
 - Install command copy buttons:
