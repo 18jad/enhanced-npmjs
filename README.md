@@ -1,4 +1,4 @@
-# Enhanced NPMJS
+# Enhanced NpmJs
 
 Browser extension to enhance and add extra features to [npmjs.com](https://www.npmjs.com/)
 

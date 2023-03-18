@@ -1,7 +1,7 @@
 {
-  "name": "npmjs-pnpm-button",
+  "name": "enhanced-npmjs",
   "version": "1.0.0",
-  "description": "npmjs-pnpm-button",
+  "description": "Enhanced npmjs.com with added features",
   "scripts": {
     "build": "cd src && tsc && cp styles ../build -r",
     "build:prod": "cd src && tsc && cp styles ../build -r && npm run zip",
