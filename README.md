@@ -4,7 +4,7 @@ Browser extension to enhance and add extra features to [npmjs.com](https://www.n
 
 ## Download
 ### Chrome and Edge: ~LINK~
-
+### Firefox: ~LINK~
 Extension waiting for approval from chrome store, will update link when it's approved
 
 ## Current features:
