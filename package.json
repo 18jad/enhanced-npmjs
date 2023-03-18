@@ -1,0 +1,14 @@
+{
+  "name": "npmjs-pnpm-button",
+  "version": "1.0.0",
+  "description": "npmjs-pnpm-button",
+  "scripts": {
+    "build": "cd src && tsc && cp styles ../build -r"
+  },
+  "keywords": [],
+  "author": "Jad Yahya",
+  "license": "ISC",
+  "dependencies": {
+    "@types/chrome": "^0.0.224"
+  }
+}

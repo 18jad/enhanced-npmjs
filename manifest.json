@@ -1,0 +1,34 @@
+{
+  "name": "Enhanced Npmjs",
+  "description": "Some enhancements and extra features for npmjs.com",
+  "version": "0.1.0",
+  "manifest_version": 3,
+  "permissions": [
+    "tabs",
+    "scripting",
+    "clipboardWrite",
+    "clipboardRead",
+    "webRequest",
+    "webNavigation",
+    "activeTab"
+  ],
+  "host_permissions": ["https://*/*"],
+  "background": {
+    "service_worker": "build/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.npmjs.com/package/*"],
+      "js": [
+        "build/constants.js",
+        "build/utils/general.utils.js",
+        "build/utils/html.utils.js",
+        "build/utils/buttons.utils.js",
+        "build/utils/codeblock.utils.js",
+        "build/main.js"
+      ],
+      "css": ["build/styles/styles.css"],
+      "match_about_blank": false
+    }
+  ]
+}
