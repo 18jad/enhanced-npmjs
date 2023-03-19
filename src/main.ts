@@ -48,6 +48,7 @@ function enhance(): void {
     // replace the old one with the new one that contain the correct download script
     yarnButton.remove();
     pnpmButton.remove();
+
     yarnButton = cloneAndInsertInstallButton(originalButton, "yarn add");
     pnpmButton = cloneAndInsertInstallButton(originalButton, "pnpm add");
   }
