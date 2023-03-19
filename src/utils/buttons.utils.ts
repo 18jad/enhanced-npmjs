@@ -39,24 +39,31 @@ namespace CopyInstallScriptButtonsUtils {
     callback?: () => void
   ) {
     const textSelector = button.querySelector(SELECTOR_TEXT) as HTMLSpanElement;
-    const initialText = textSelector.textContent;
     const initialBackground =
       button.style.backgroundColor ??
       window.getComputedStyle(button).backgroundColor;
 
-    button.style.backgroundColor = GREEN_BACKGROUND;
-    button.setAttribute("data-enhanced-status", ENHANCED_STATUS.COPYING);
+    // Cloning the text selector, changing the text and replacing the original
+    // I had to do this because when switching from one package to another
+    // the text selector was not changing, and stayed with the old package text
+    const clonnedTextSelector = textSelector.cloneNode(true) as HTMLSpanElement;
+    clonnedTextSelector.textContent = "✔ Copied!";
+    textSelector.replaceWith(clonnedTextSelector);
+    clonnedTextSelector.focus();
 
-    textSelector.textContent = "Copied!";
+    button.style.backgroundColor = GREEN_BACKGROUND;
+    button.dataset.enhancedStatus = ENHANCED_STATUS.COPYING;
 
     if (showToast) showToastNotification();
 
     setTimeout(() => {
       button.style.backgroundColor = initialBackground;
-      button.setAttribute("data-enhanced-status", ENHANCED_STATUS.IDLE);
 
-      textSelector.textContent = initialText;
-      textSelector.blur();
+      // If the button has no style, remove the style attribute
+      if (!button.getAttribute("style")) button.removeAttribute("style");
+
+      button.dataset.enhancedStatus = ENHANCED_STATUS.IDLE;
+      clonnedTextSelector.replaceWith(textSelector);
 
       if (callback) callback();
     }, 2000);
@@ -67,7 +74,7 @@ namespace CopyInstallScriptButtonsUtils {
       NOTIFICATION_SELECTOR
     ) as HTMLDivElement;
 
-    const { fragment: toast, randomId: toastId } = htmlStringToElement(
+    const { fragment: toast, fragmentId: toastId } = htmlStringToElement(
       SUCCESS_HTML,
       true
     );

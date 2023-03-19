@@ -3,14 +3,19 @@
   "version": "1.0.0",
   "description": "Enhanced npmjs.com with added features",
   "scripts": {
-    "build": "cd src && tsc && cp styles ../build -r",
-    "build:prod": "cd src && tsc && cp styles ../build -r && npm run zip",
-    "zip": "7z a -tzip enhanced-npmjs.zip ."
+    "prebuild": "rimraf ./build",
+    "build": "npm run compile && npm run copy-assets",
+    "build:prod": "npm run build && npm run zip",
+    "compile": "tsc",
+    "copy-assets": "copyfiles --all --up 1 --exclude \"./**/*.ts\" \"./src/**/*\" ./build && copyfiles manifest.json ./build",
+    "zip": "7z a -tzip enhanced-npmjs.zip .\\build\\*"
   },
   "keywords": [],
   "author": "Jad Yahya",
   "license": "ISC",
-  "dependencies": {
-    "@types/chrome": "^0.0.224"
+  "devDependencies": {
+    "@types/chrome": "^0.0.224",
+    "copyfiles": "^2.4.1",
+    "rimraf": "^4.4.0"
   }
 }

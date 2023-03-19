@@ -7,18 +7,14 @@ function enhance() {
     const codeBlocks = document.querySelectorAll(CODE_BLOCKS_SELECTOR);
     if (!enhaceCounter && !yarnButton && !pnpmButton) {
         const originalInnerSpan = originalButton.querySelector(SELECTOR_TEXT);
-        const _defaultPointerEvents = originalInnerSpan.style.pointerEvents;
         originalButton.addEventListener("click", (e) => {
-            originalInnerSpan.style.pointerEvents = "none";
             if (originalButton.dataset.enhancedStatus === ENHANCED_STATUS.COPYING) {
                 e.preventDefault();
                 return;
             }
             const text = originalInnerSpan.textContent;
             if (text)
-                copyToClipboard(text, () => CopyInstallScriptButtonsUtils.success(originalButton, false, () => {
-                    originalInnerSpan.style.pointerEvents = _defaultPointerEvents;
-                }));
+                copyToClipboard(text, () => CopyInstallScriptButtonsUtils.success(originalButton, false));
         });
         yarnButton = cloneAndInsertInstallButton(originalButton, "yarn add");
         pnpmButton = cloneAndInsertInstallButton(originalButton, "pnpm add");
