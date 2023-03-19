@@ -3,9 +3,8 @@
 Browser extension to enhance and add extra features to [npmjs.com](https://www.npmjs.com/)
 
 ## Download
-### Chrome and Edge: ~LINK~
+### Chrome and Edge: [LINK](https://chrome.google.com/webstore/detail/enhanced-npmjs/nafhlifpljhidieennegembbbabcihfp?hl=en&authuser=0)
 ### Firefox: ~LINK~
-Extension waiting for approval from chrome store, will update link when it's approved
 
 ## Current features:
 
