@@ -13,20 +13,16 @@ function enhance(): void {
 
   if (!enhaceCounter && !yarnButton && !pnpmButton) {
     // Manipulating the original button to prevent multiple clicks while copying
-    // and to have the common copy effect between other buttons
+    // and to have the common copy effect among other buttons
     //
     // Copy click event is placed on the span
     const originalInnerSpan = originalButton.querySelector(
       SELECTOR_TEXT
     ) as HTMLSpanElement;
 
-    const _defaultPointerEvents = originalInnerSpan.style.pointerEvents;
-
     originalButton.addEventListener("click", (e) => {
-      originalInnerSpan.style.pointerEvents = "none";
       if (originalButton.dataset.enhancedStatus === ENHANCED_STATUS.COPYING) {
         e.preventDefault();
-
         return;
       }
 
@@ -34,9 +30,7 @@ function enhance(): void {
 
       if (text)
         copyToClipboard(text, () =>
-          CopyInstallScriptButtonsUtils.success(originalButton, false, () => {
-            originalInnerSpan.style.pointerEvents = _defaultPointerEvents;
-          })
+          CopyInstallScriptButtonsUtils.success(originalButton, false)
         );
     });
 
