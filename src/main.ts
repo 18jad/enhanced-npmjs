@@ -24,7 +24,6 @@ function enhance(): void {
 
     originalButton.addEventListener("click", (e) => {
       originalInnerSpan.style.pointerEvents = "none";
-
       if (originalButton.dataset.enhancedStatus === ENHANCED_STATUS.COPYING) {
         e.preventDefault();
 
@@ -48,6 +47,7 @@ function enhance(): void {
     // replace the old one with the new one that contain the correct download script
     yarnButton.remove();
     pnpmButton.remove();
+
     yarnButton = cloneAndInsertInstallButton(originalButton, "yarn add");
     pnpmButton = cloneAndInsertInstallButton(originalButton, "pnpm add");
   }
