@@ -13,7 +13,7 @@ function htmlStringToElement(html, addRandomId = false) {
     const _document = document, _tempDiv = _document.createElement("div"), fragment = _document.createDocumentFragment();
     _tempDiv.innerHTML = html;
     if (addRandomId) {
-        randomId = Math.random().toString(36).substr(2, 9);
+        randomId = generateRandomId();
         (_a = _tempDiv
             .querySelector("[data-enhanced='toaster']")) === null || _a === void 0 ? void 0 : _a.setAttribute("data-enhanced-id", randomId);
     }

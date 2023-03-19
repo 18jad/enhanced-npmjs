@@ -21,7 +21,7 @@ function htmlStringToElement(html: string, addRandomId: boolean = false) {
 
   if (addRandomId) {
     // Used for the remove toaster hack
-    randomId = Math.random().toString(36).substr(2, 9);
+    randomId = generateRandomId();
     _tempDiv
       .querySelector("[data-enhanced='toaster']")
       ?.setAttribute("data-enhanced-id", randomId);

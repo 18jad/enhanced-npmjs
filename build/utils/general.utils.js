@@ -25,3 +25,6 @@ function fallbackCopyToClipboard(text) {
     }
     document.body.removeChild(textArea);
 }
+function generateRandomId(prefix = "enhanced-npmjs") {
+    return `${prefix}-${Math.random().toString(36).substring(2, 9)}`;
+}
