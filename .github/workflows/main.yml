@@ -23,7 +23,7 @@ jobs:
       - name: Zip Extension
         uses: vimtor/action-zip@v1
         with:
-          files: build/ manifest.json
+          files: build/ 
           recursive: false
           dest: enhanced-npmjs.zip
 
