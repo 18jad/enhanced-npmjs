@@ -24,7 +24,6 @@ function enhance(): void {
 
     originalButton.addEventListener("click", (e) => {
       originalInnerSpan.style.pointerEvents = "none";
-
       if (originalButton.dataset.enhancedStatus === ENHANCED_STATUS.COPYING) {
         e.preventDefault();
 
