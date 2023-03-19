@@ -45,7 +45,7 @@ var CopyInstallScriptButtonsUtils;
     CopyInstallScriptButtonsUtils.success = success;
     function showToastNotification() {
         const notificationToasterContainer = document.querySelector(NOTIFICATION_SELECTOR);
-        const { fragment: toast, randomId: toastId } = htmlStringToElement(SUCCESS_HTML, true);
+        const { fragment: toast, fragmentId: toastId } = htmlStringToElement(SUCCESS_HTML, true);
         notificationToasterContainer.appendChild(toast);
         setTimeout(() => {
             const _toastElement = document.querySelector(`[data-enhanced-id='${toastId}']`);

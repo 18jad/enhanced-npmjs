@@ -20,7 +20,7 @@ function htmlStringToElement(html, addRandomId = false) {
     while ((t = _tempDiv.firstChild))
         fragment.appendChild(t);
     _tempDiv.remove();
-    return { fragment, randomId };
+    return { fragment, fragmentId: randomId };
 }
 function removeDocumentFragment(fragment) {
     while (fragment.firstChild)

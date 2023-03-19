@@ -30,7 +30,7 @@ function htmlStringToElement(html: string, addRandomId: boolean = false) {
 
   _tempDiv.remove();
 
-  return { fragment, randomId };
+  return { fragment, fragmentId: randomId };
 }
 
 // X: This function doesn't work, keep it here for reference

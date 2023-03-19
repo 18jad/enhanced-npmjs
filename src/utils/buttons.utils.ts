@@ -74,7 +74,7 @@ namespace CopyInstallScriptButtonsUtils {
       NOTIFICATION_SELECTOR
     ) as HTMLDivElement;
 
-    const { fragment: toast, randomId: toastId } = htmlStringToElement(
+    const { fragment: toast, fragmentId: toastId } = htmlStringToElement(
       SUCCESS_HTML,
       true
     );
