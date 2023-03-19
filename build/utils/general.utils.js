@@ -3,12 +3,18 @@ function copyToClipboard(text, callback) {
     if (!text)
         return;
     if (!navigator.clipboard) {
-        fallbackCopyToClipboard(text);
+        fallbackCopyToClipboard(text, callback);
         return;
     }
-    navigator.clipboard.writeText(text).then(callback);
+    navigator.clipboard
+        .writeText(text)
+        .then(callback)
+        .catch((err) => {
+        console.error("Async: Could not copy text: ", err);
+        fallbackCopyToClipboard(text, callback);
+    });
 }
-function fallbackCopyToClipboard(text) {
+function fallbackCopyToClipboard(text, callback) {
     const textArea = document.createElement("textarea");
     textArea.value = text;
     textArea.style.top = "0";
@@ -18,7 +24,9 @@ function fallbackCopyToClipboard(text) {
     textArea.focus();
     textArea.select();
     try {
-        document.execCommand("copy");
+        const triggerCopy = document.execCommand("copy");
+        if (callback && triggerCopy)
+            callback();
     }
     catch (err) {
         console.error("Fallback: Oops, unable to copy", err);

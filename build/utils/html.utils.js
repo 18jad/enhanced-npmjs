@@ -1,10 +1,10 @@
 "use strict";
-function extractTextFromHTML(html) {
+function extractTextFromHTML(html, trim) {
     const _tempDiv = document.createElement("div");
     _tempDiv.innerHTML = html;
     const content = _tempDiv.textContent || _tempDiv.innerText || "";
     _tempDiv.remove();
-    return content;
+    return trim ? content.trim() : content;
 }
 function htmlStringToElement(html, addRandomId = false) {
     var _a;

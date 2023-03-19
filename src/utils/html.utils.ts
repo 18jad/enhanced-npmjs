@@ -1,4 +1,9 @@
-function extractTextFromHTML(html: string) {
+/**
+ * Extracts text from a string of HTML (inner text), removes the HTML tags and comments
+ * @param html: string
+ * @returns string
+ */
+function extractTextFromHTML(html: string, trim?: boolean) {
   const _tempDiv = document.createElement("div");
   _tempDiv.innerHTML = html;
 
@@ -6,9 +11,15 @@ function extractTextFromHTML(html: string) {
 
   _tempDiv.remove();
 
-  return content;
+  return trim ? content.trim() : content;
 }
 
+/**
+ * Converts a string of HTML to a DocumentFragment, optionally adds a random enhanced-id
+ * @param html: string
+ * @param addRandomId: boolean
+ * @returns { fragment: DocumentFragment, fragmentId: string | null }
+ */
 function htmlStringToElement(html: string, addRandomId: boolean = false) {
   let t: ChildNode | null;
   let randomId: string | null = null;
@@ -20,7 +31,6 @@ function htmlStringToElement(html: string, addRandomId: boolean = false) {
   _tempDiv.innerHTML = html;
 
   if (addRandomId) {
-    // Used for the remove toaster hack
     randomId = generateRandomId();
     _tempDiv
       .querySelector("[data-enhanced='toaster']")
