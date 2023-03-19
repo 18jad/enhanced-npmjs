@@ -4,7 +4,10 @@ const MessagesEnumChrome = {
 };
 
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-  if (changeInfo.url) {
+  if (
+    changeInfo.url &&
+    tab.url?.match(/https:\/\/www.npmjs.com\/package\/.*/)
+  ) {
     chrome.tabs.sendMessage(tabId, {
       type: MessagesEnumChrome.PAGE_RERENDERED
     });
