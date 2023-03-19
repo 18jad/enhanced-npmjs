@@ -17,15 +17,22 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build zip file
-        run: npm run build:prod
+      - name: Build and Compile
+        run: npm run build
+
+      - name: Zip Extension
+      - uses: vimtor/action-zip@v1
+        with:
+          files: build/ manifest.json
+          recursive: false
+          dest: enhanced-npmjs.zip
 
       - name: Upload to Chrome Web Store
         uses: mobilefirstllc/cws-publish@latest
         with:
-          action: 'upload' 
+          action: "upload"
           client_id: ${{ secrets.CLIENT }}
           client_secret: ${{ secrets.SECRET }}
           refresh_token: ${{ secrets.TOKEN }}
           extension_id: ${{ secrets.EXTENSION_ID }}
-          zip_file: 'enhanced-npmjs.zip'
+          zip_file: "enhanced-npmjs.zip"

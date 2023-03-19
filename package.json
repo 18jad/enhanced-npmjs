@@ -8,7 +8,7 @@
     "build:prod": "npm run build && npm run zip",
     "compile": "tsc",
     "copy-assets": "copyfiles --all --up 1 --exclude \"./**/*.ts\" \"./src/**/*\" ./build && copyfiles manifest.json ./build",
-    "zip": "rimraf enhanced-npmjs.zip && sleep 5 && 7z a -tzip enhanced-npmjs.zip .\\build\\*"
+    "zip": "rimraf enhanced-npmjs.zip && 7z a -tzip enhanced-npmjs.zip .\\build\\*"
   },
   "keywords": [],
   "author": "Jad Yahya",
