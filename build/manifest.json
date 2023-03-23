@@ -31,6 +31,8 @@
         "./utils/html.utils.js",
         "./utils/buttons.utils.js",
         "./utils/codeblock.utils.js",
+        "./utils/bundlephobia/getPackageStats.js",
+        "./utils/bundlephobia/createDomContent.js",
         "./main.js"
       ],
       "css": ["./styles/styles.css"],

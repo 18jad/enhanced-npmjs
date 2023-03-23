@@ -36,3 +36,8 @@ function fallbackCopyToClipboard(text, callback) {
 function generateRandomId(prefix = "enhanced-npmjs") {
     return `${prefix}-${Math.random().toString(36).substring(2, 9)}`;
 }
+function convertBytes(bytes, to = "mb") {
+    return to === "mb"
+        ? (bytes / 1024 / 1024).toFixed(2)
+        : (bytes / 1024).toFixed(2);
+}

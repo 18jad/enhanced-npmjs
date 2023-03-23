@@ -55,3 +55,14 @@ function fallbackCopyToClipboard(text: string, callback?: () => void) {
 function generateRandomId(prefix = "enhanced-npmjs") {
   return `${prefix}-${Math.random().toString(36).substring(2, 9)}`;
 }
+
+/**
+ * Converts bytes to megabytes or kilobytes
+ * @param bytes: number
+ * @returns
+ */
+function convertBytes(bytes: number, to: "kb" | "mb" = "mb") {
+  return to === "mb"
+    ? (bytes / 1024 / 1024).toFixed(2)
+    : (bytes / 1024).toFixed(2);
+}
