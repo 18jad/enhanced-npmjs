@@ -20,3 +20,14 @@
   font-weight: 600;
   white-space: nowrap;
 }
+
+.notxtd {
+  text-decoration: none;
+}
+
+.max-between {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

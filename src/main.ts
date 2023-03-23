@@ -53,6 +53,10 @@ function enhance(): void {
     }
   });
 
+  getPackageStats().then((data) => {
+    if (data) createDomContent(data);
+  });
+
   ++enhaceCounter;
 }
 

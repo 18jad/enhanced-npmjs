@@ -1,7 +1,7 @@
 {
   "name": "Enhanced NpmJs",
   "description": "Some enhancements and extra features for npmjs.com",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "manifest_version": 3,
   "permissions": [
     "tabs",
@@ -31,6 +31,8 @@
         "./utils/html.utils.js",
         "./utils/buttons.utils.js",
         "./utils/codeblock.utils.js",
+        "./utils/bundlephobia/getPackageStats.js",
+        "./utils/bundlephobia/createDomContent.js",
         "./main.js"
       ],
       "css": ["./styles/styles.css"],

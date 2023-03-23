@@ -30,6 +30,10 @@ function enhance() {
             insertPreCopyButton(codeBlock);
         }
     });
+    getPackageStats().then((data) => {
+        if (data)
+            createDomContent(data);
+    });
     ++enhaceCounter;
 }
 enhance();

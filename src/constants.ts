@@ -1,3 +1,5 @@
+// -------------------- SELECTORS -------------------- //
+
 // Clone button selector
 const SELECTOR =
   "#top > div.fdbf4038.w-third-l.mt3.w-100.ph3.ph4-m.pv3.pv0-l > p";
@@ -14,7 +16,25 @@ const NOTIFICATION_SELECTOR =
 
 const CODE_BLOCKS_SELECTOR = ".highlight > pre";
 
+const COPY_SVG_SELECTOR = "[data-icon='copy']";
+
+// Bundlephobia sibiling selectors
+const BUNDLEPHOBIA_BEFORE_ELEMENT_SELECTOR =
+  "#top > div.fdbf4038.w-third-l.mt3.w-100.ph3.ph4-m.pv3.pv0-l > div:nth-child(6)";
+
+// -------------------- CONSTANTS -------------------- //
+
 const GREEN_BACKGROUND = "hsl(120, 100%, 93%)";
+
+const COPY_ICON = (
+  document.querySelector(COPY_SVG_SELECTOR)?.cloneNode(true) as SVGElement
+).outerHTML;
+
+const BUNDLEPHOBIA = {
+  BASE_URL: "https://bundlephobia.com/api/size?package=" // + packageName
+};
+
+// -------------------- HTML -------------------- //
 
 // Notification toaster HTML
 const SUCCESS_HTML = `
@@ -24,9 +44,6 @@ const SUCCESS_HTML = `
                 ✔ Copied to clipboard!
             </p>
         </div>
-        <button aria-label="Close notification" class="_545224b8 ma0 f3 fw6">
-            ×
-        </button>
     </div>
 `;
 
@@ -36,14 +53,14 @@ const PRE_COPY_SUCCESS_HTML = `
   </span>
 `;
 
-// Copy icon selector
-const COPY_SVG_SELECTOR = "[data-icon='copy']";
+// -------------------- CSS -------------------- //
+const BUNDLEPHOBIA_CLASSNAMES = {
+  CONTAINER: "_702d723c dib w-50 fl bb b--black-10 pr2 w-100",
+  HEADER: "c84e15be f5 mt2 pt2 mb0"
+};
 
-const COPY_ICON = (
-  document.querySelector(COPY_SVG_SELECTOR)?.cloneNode(true) as SVGElement
-).outerHTML;
+// -------------------- ENUMS -------------------- //
 
-// Enums
 const MessagesEnum = {
   PAGE_RERENDERED: "PAGE_RERENDERED"
 } as const;
